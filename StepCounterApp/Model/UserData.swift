@@ -71,8 +71,3 @@ class Competition{
 //        self.users = dictionary["users"] as! [String:Int]
     }
 }
-
-struct Deneme {
-    var id: String = ""
-    var count: Int = 0
-}
