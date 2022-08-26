@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="score" rowHeight="76" id="KGk-i7-Jjw" customClass="ScoreTableViewCell" customModule="StepCounterApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="312" height="76"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="312" height="76"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="table-cell" translatesAutoresizingMaskIntoConstraints="NO" id="7sn-aP-4bi">
+                        <rect key="frame" x="5" y="5" width="302" height="66"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nZd-Pf-L6X">
+                        <rect key="frame" x="10" y="26.5" width="33" height="23.5"/>
+                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="-10" translatesAutoresizingMaskIntoConstraints="NO" id="B6F-P9-43Q">
+                        <rect key="frame" x="91" y="10" width="145" height="56"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Muhammet Taha Genç" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UU1-iG-RbT">
+                                <rect key="frame" x="0.0" y="0.0" width="145" height="33"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ruQ-Nt-Q1o">
+                                <rect key="frame" x="0.0" y="23" width="145" height="33"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="ruQ-Nt-Q1o" firstAttribute="height" secondItem="UU1-iG-RbT" secondAttribute="height" id="pvt-pk-yeV"/>
+                        </constraints>
+                    </stackView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="up-arrow" translatesAutoresizingMaskIntoConstraints="NO" id="BS2-If-bM4">
+                        <rect key="frame" x="48" y="25" width="13" height="26"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="BS2-If-bM4" secondAttribute="height" multiplier="1:2" id="TpF-bK-6Eg"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="BS2-If-bM4" firstAttribute="leading" secondItem="nZd-Pf-L6X" secondAttribute="trailing" constant="5" id="27R-jj-NhE"/>
+                    <constraint firstAttribute="bottom" secondItem="B6F-P9-43Q" secondAttribute="bottom" constant="10" id="35b-x6-WLp"/>
+                    <constraint firstItem="B6F-P9-43Q" firstAttribute="leading" secondItem="BS2-If-bM4" secondAttribute="trailing" constant="30" id="6HK-hV-AtG"/>
+                    <constraint firstItem="nZd-Pf-L6X" firstAttribute="centerY" secondItem="7sn-aP-4bi" secondAttribute="centerY" id="AM9-m6-yAP"/>
+                    <constraint firstItem="7sn-aP-4bi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="C3Q-pG-776"/>
+                    <constraint firstAttribute="bottom" secondItem="BS2-If-bM4" secondAttribute="bottom" constant="25" id="P97-Wd-uYD"/>
+                    <constraint firstItem="B6F-P9-43Q" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="g7W-9O-NZi"/>
+                    <constraint firstItem="7sn-aP-4bi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="kC6-45-XSj"/>
+                    <constraint firstItem="nZd-Pf-L6X" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="lHv-da-QyE"/>
+                    <constraint firstAttribute="trailing" secondItem="7sn-aP-4bi" secondAttribute="trailing" constant="5" id="qC7-ZD-wwW"/>
+                    <constraint firstItem="BS2-If-bM4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="25" id="qFG-av-3hi"/>
+                    <constraint firstAttribute="bottom" secondItem="7sn-aP-4bi" secondAttribute="bottom" constant="5" id="zb7-w1-xBK"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="backgroundImageView" destination="7sn-aP-4bi" id="LlY-a4-Val"/>
+                <outlet property="nicknameLabel" destination="UU1-iG-RbT" id="smd-n8-eC9"/>
+                <outlet property="scoreLabel" destination="nZd-Pf-L6X" id="mgc-7b-Ipg"/>
+                <outlet property="stepLabel" destination="ruQ-Nt-Q1o" id="LMc-fm-wIo"/>
+            </connections>
+            <point key="canvasLocation" x="92.753623188405811" y="89.732142857142847"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="table-cell" width="359" height="76"/>
+        <image name="up-arrow" width="13.5" height="8"/>
+    </resources>
+</document>
