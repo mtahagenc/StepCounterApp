@@ -36,16 +36,16 @@ class NScoreBoardTableViewController: UIViewController, UITableViewDelegate, UIT
         getCurrentRanking()
     }
     @IBAction func allTimeBtn(_ sender: UIButton) {
-        nowBtnOutlet.setBackgroundImage(UIImage(named: "empty-rect"), for: .normal)
-        nowBtnOutlet.setTitleColor(UIColor(red: 0.08, green: 0.33, blue: 0.72, alpha: 1.00), for: .normal)
-        allTimeBtnOutlet.setBackgroundImage(UIImage(named: "fill-rect"), for: .normal)
-        allTimeBtnOutlet.setTitleColor(.white, for: .normal)
-        getAllTimeRanking()
+        self.present(alertFunction(message: "Yarışmamıza puanlama sistemi daha sonra eklenecektir.", title: "Puanlama Sistemi"), animated: true, completion: nil)
+//        nowBtnOutlet.setBackgroundImage(UIImage(named: "empty-rect"), for: .normal)
+//        nowBtnOutlet.setTitleColor(UIColor(red: 0.08, green: 0.33, blue: 0.72, alpha: 1.00), for: .normal)
+//        allTimeBtnOutlet.setBackgroundImage(UIImage(named: "fill-rect"), for: .normal)
+//        allTimeBtnOutlet.setTitleColor(.white, for: .normal)
+        //        getAllTimeRanking()
     }
     @IBAction func backBtnPressed(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
-    
     
     //MARK: - ViewDidLoad
     override func viewDidLoad() {
@@ -64,8 +64,9 @@ class NScoreBoardTableViewController: UIViewController, UITableViewDelegate, UIT
         let cell = tableView.dequeueReusableCell(withIdentifier: "score", for: indexPath) as! ScoreTableViewCell
         
         //we are changing the first cell's background image to highlight it
-        cell.backgroundImageView.image = indexPath.row == 0 ?  UIImage(named: "firstClass") : UIImage(named: "table-cell")
+//        cell.backgroundImageView.image = indexPath.row == 0 ?  UIImage(named: "firstClass") : UIImage(named: "table-cell")
         
+        cell.backgroundImageView.image = UIImage(named: "table-cell")
         cell.nicknameLabel.text = self.sortedResults[indexPath.row]["nickname"] as? String
         cell.scoreLabel.text = " \(indexPath.row + 1)"
         cell.stepLabel.text = String(self.sortedResults[indexPath.row]["step_count"] as! Int)
@@ -150,5 +151,14 @@ class NScoreBoardTableViewController: UIViewController, UITableViewDelegate, UIT
         activityIndicator.hidesWhenStopped = true
         activityIndicator.style = .large
         self.view.addSubview(activityIndicator)
+    }
+    func alertFunction(message: String ,title: String) -> UIAlertController {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Tamam", style: .cancel, handler: nil))
+        
+        activityIndicator.stopAnimating()
+        self.view.isUserInteractionEnabled = true
+        
+        return alert
     }
 }

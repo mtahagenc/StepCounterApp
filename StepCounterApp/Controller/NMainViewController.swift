@@ -50,7 +50,8 @@ class NMainViewController: UIViewController, MyDataSendingDelegateProtocol {
     @IBOutlet weak var displayNameLabel: UILabel!
     @IBOutlet weak var IAPOutlet: UIButton!
     @IBAction func IAPButton(_ sender: UIButton) {
-        performSegue(withIdentifier: "showIAP", sender: self)
+//        performSegue(withIdentifier: "showIAP", sender: self)
+        self.present(alertFunction(message: "Yarışmamıza puanlama sistemi daha sonra eklenecektir.", title: "Puanlama Sistemi"), animated: true, completion: nil)
     }
     @IBAction func profileBtn(_ sender: UIButton) {
         performSegue(withIdentifier: "showProfile", sender: self)
@@ -174,6 +175,13 @@ class NMainViewController: UIViewController, MyDataSendingDelegateProtocol {
     func reloadUIWithFirebaseData(userData:UserData) {
         totalPointsLabel.text = String(userData.total_point)
         totalStepCountLabel.text = String(userData.step_count)
+    }
+    func alertFunction(message: String ,title: String) -> UIAlertController {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Tamam", style: .cancel, handler: nil))
+        self.view.isUserInteractionEnabled = true
+        
+        return alert
     }
 }
 
