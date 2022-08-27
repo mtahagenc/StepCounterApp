@@ -68,6 +68,10 @@ class NScoreBoardTableViewController: UIViewController, UITableViewDelegate, UIT
              
         return cell
     }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let height = scoreBoardTableView.frame.height / 5
+        return height
+    }
     
     //MARK: - Functions
     func getCurrentRanking() {
