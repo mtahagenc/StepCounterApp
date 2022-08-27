@@ -33,8 +33,9 @@ class NMainViewController: UIViewController, MyDataSendingDelegateProtocol {
     var userData : UserData = UserData()
     var activeComp : ActiveComp = ActiveComp()
     let displayName = Auth.auth().currentUser!.displayName!
+    var endDate: NSDate?
+    var countdownTimer = Timer()
 
-    
     //MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,13 +61,51 @@ class NMainViewController: UIViewController, MyDataSendingDelegateProtocol {
         performSegue(withIdentifier: "showScore", sender: self)
     }
     
-    //MARK: - Functions
+    //MARK: - Timer Functions
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showIAP" {
             let secondVC: IAPViewController = segue.destination as! IAPViewController
             secondVC.delegate = self
         }
     }
+    func startTimer(remainingTime : String) {
+
+        let endDateString = remainingTime
+        let endDateFormatter = DateFormatter()
+        endDateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        endDate = endDateFormatter.date(from: endDateString)! as NSDate
+
+        countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+    }
+    func stringToDate (dateString: String) -> Date{
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "tr_TR")
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let date = dateFormatter.date(from:dateString)! + 3 * 60 * 60
+        return date
+    }
+    @objc func updateTime() {
+
+        let currentDate = Date()
+        let calendar = Calendar.current
+
+        let diffDateComponents = calendar.dateComponents([.day, .hour, .minute, .second], from: currentDate, to: endDate! as Date)
+
+        let countdown = "\(diffDateComponents.day ?? 0):\(diffDateComponents.hour ?? 0):\(diffDateComponents.minute ?? 0):\(diffDateComponents.second ?? 0)"
+
+        currentStepCount.text = countdown
+    }
+    func startPedometer (ref: DatabaseReference, startDate: Date) {
+        pedometer.startUpdates(from: startDate) { (data, error) in
+            if error == nil {
+                //rewrite the step data on the child
+                self.ref.child("competitions/active/users/\(self.displayName)").setValue(data!.numberOfSteps.intValue*self.stepMultiplier)
+            } else{
+                print("An error was occured: \(error!)")
+            }
+        }
+    }
+    //MARK: - Firebase Functions
     func getActiveCompetition() {
         ref = Database.database().reference()
         getFirebaseData(ref: self.ref)
@@ -89,30 +128,16 @@ class NMainViewController: UIViewController, MyDataSendingDelegateProtocol {
                 //start pedometer with the starDate and current step data
                 self.startPedometer(ref: self.ref, startDate: self.activeComp.start_date)
                 
+                //start timer to count down
+                self.startTimer(remainingTime: endDate)
+                
                 //reload ui with the new activeComp data
-                self.currentStepCount.text = String(self.activeComp.users[self.displayName] ?? 0)
+                self.totalStepCountLabel.text = String(self.activeComp.users[self.displayName] ?? 0)
             } else {
                 self.pedometer.stopUpdates()
                 print("There is no active competition.")
             }
         }
-    }
-    func startPedometer (ref: DatabaseReference, startDate: Date) {
-        pedometer.startUpdates(from: startDate) { (data, error) in
-            if error == nil {
-                //rewrite the step data on the child
-                self.ref.child("competitions/active/users/\(self.displayName)").setValue(data!.numberOfSteps.intValue*self.stepMultiplier)
-            } else{
-                print("An error was occured: \(error!)")
-            }
-        }
-    }
-    func stringToDate (dateString: String) -> Date{
-        let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "tr_TR")
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let date = dateFormatter.date(from:dateString)! + 3 * 60 * 60
-        return date
     }
     func getFirebaseData(ref: DatabaseReference) {
         //gets the user data in the firebase
@@ -125,7 +150,6 @@ class NMainViewController: UIViewController, MyDataSendingDelegateProtocol {
                 } else {
                     print("There is no One Signal Player Id in the device")
                 }
-                
                 //change userData with the snapshotValue
                 self.userData.nickname = snapshotValue["nickname"] as! String
                 self.userData.step_count = snapshotValue["step_count"] as! Int
