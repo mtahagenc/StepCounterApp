@@ -404,7 +404,7 @@
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XHL-et-nJb">
                                         <rect key="frame" x="0.0" y="0.0" width="142.5" height="48"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="18"/>
-                                        <state key="normal" title="Şuan" backgroundImage="fill-rect">
+                                        <state key="normal" title="Adım" backgroundImage="fill-rect">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -414,7 +414,7 @@
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YfE-DR-Hnt">
                                         <rect key="frame" x="172.5" y="0.0" width="142.5" height="48"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="18"/>
-                                        <state key="normal" title="Tüm Zamanlar" backgroundImage="empty-rect">
+                                        <state key="normal" title="Puan" backgroundImage="empty-rect">
                                             <color key="titleColor" red="0.082042060789999996" green="0.36407309770000001" blue="0.71048146489999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -496,6 +496,9 @@
                     <navigationItem key="navigationItem" id="qEi-7s-CMh"/>
                     <connections>
                         <outlet property="allTimeBtnOutlet" destination="YfE-DR-Hnt" id="zEU-Nr-XPz"/>
+                        <outlet property="currentUserName" destination="QUB-Yc-3SE" id="Ipo-KW-L8l"/>
+                        <outlet property="currentUserPlace" destination="Bmc-It-ck6" id="7nh-wX-xij"/>
+                        <outlet property="currentUserStep" destination="DjH-xs-XOn" id="SOe-yd-17S"/>
                         <outlet property="nowBtnOutlet" destination="XHL-et-nJb" id="RmW-Qd-Naa"/>
                         <outlet property="scoreBoardTableView" destination="CKp-Zg-FRr" id="icx-MY-6PZ"/>
                     </connections>

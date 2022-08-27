@@ -18,10 +18,14 @@ class NScoreBoardTableViewController: UIViewController, UITableViewDelegate, UIT
     var sortedResults: [[String: Any]] = []
     var activityIndicator = UIActivityIndicatorView()
     
+    
     //MARK: - IBOutlets
     @IBOutlet weak var nowBtnOutlet: UIButton!
     @IBOutlet weak var allTimeBtnOutlet: UIButton!
     @IBOutlet weak var scoreBoardTableView: UITableView!
+    @IBOutlet weak var currentUserPlace: UILabel!    
+    @IBOutlet weak var currentUserStep: UILabel!
+    @IBOutlet weak var currentUserName: UILabel!
     
     //MARK: - IBActions
     @IBAction func nowBtn(_ sender: UIButton) {
@@ -65,6 +69,7 @@ class NScoreBoardTableViewController: UIViewController, UITableViewDelegate, UIT
         cell.nicknameLabel.text = self.sortedResults[indexPath.row]["nickname"] as? String
         cell.scoreLabel.text = " \(indexPath.row + 1)"
         cell.stepLabel.text = String(self.sortedResults[indexPath.row]["step_count"] as! Int)
+        
              
         return cell
     }
@@ -88,11 +93,20 @@ class NScoreBoardTableViewController: UIViewController, UITableViewDelegate, UIT
                     "step_count" : data.value ?? 0
                 ]
                 self.userDatas.append(userDict)
+                if data.key == Auth.auth().currentUser?.displayName {
+                    self.currentUserName.text = Auth.auth().currentUser!.displayName!
+                    self.currentUserStep.text = String((data.value as? Int)!)
+                }
             }
             DispatchQueue.main.async {
                 self.sortedResults = (self.userDatas as NSArray).sortedArray(using: [NSSortDescriptor(key: "step_count", ascending: false)]) as! [[String:AnyObject]]
                 self.scoreBoardTableView.reloadData()
                 self.activityIndicator.stopAnimating()
+                for i in 0..<self.sortedResults.count {
+                    if self.sortedResults[i]["nickname"] as? String == Auth.auth().currentUser?.displayName {
+                        self.currentUserPlace.text = String(i + 1)
+                    }
+                }
             }
         }
     }
