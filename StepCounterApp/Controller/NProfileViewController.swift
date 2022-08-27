@@ -61,8 +61,6 @@ class NProfileViewController: UIViewController, UITextFieldDelegate, UITextViewD
     }
     @IBAction func changeImageBtn(_ sender: UIButton) {
         if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
-            print("Button capture")
-
             imagePicker.delegate = self
             imagePicker.sourceType = .savedPhotosAlbum
             imagePicker.allowsEditing = true

@@ -291,6 +291,7 @@
                     <connections>
                         <outlet property="IAPOutlet" destination="uvB-rY-Sg3" id="VOb-FX-o0x"/>
                         <outlet property="currentStepCount" destination="hzy-hn-51Y" id="fgO-kI-a33"/>
+                        <outlet property="displayNameLabel" destination="Ujx-LF-OVz" id="EpD-Ku-5Lh"/>
                         <outlet property="totalPointsLabel" destination="oD7-Br-VJ8" id="KUd-De-2CE"/>
                         <outlet property="totalStepCountLabel" destination="wJ0-6W-CUb" id="D4P-vw-Aqq"/>
                         <segue destination="N7a-Zh-eF7" kind="show" identifier="showScore" id="kw3-wz-zQs"/>
@@ -567,7 +568,7 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cgn-dQ-dGc">
+                                            <button hidden="YES" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cgn-dQ-dGc">
                                                 <rect key="frame" x="90" y="423.5" width="195" height="48"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
                                                 <state key="normal" title="Geçmiş Yarışmalar" backgroundImage="past-comp">

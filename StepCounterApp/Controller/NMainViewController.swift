@@ -40,13 +40,14 @@ class NMainViewController: UIViewController, MyDataSendingDelegateProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         getActiveCompetition()
+        displayNameLabel.text = "Step Counter \(displayName)"
     }
     
     //MARK: - IBOutlets and IBActions
     @IBOutlet weak var currentStepCount: UILabel!
     @IBOutlet weak var totalPointsLabel: UILabel!
     @IBOutlet weak var totalStepCountLabel: UILabel!
-    
+    @IBOutlet weak var displayNameLabel: UILabel!
     @IBOutlet weak var IAPOutlet: UIButton!
     @IBAction func IAPButton(_ sender: UIButton) {
         performSegue(withIdentifier: "showIAP", sender: self)
