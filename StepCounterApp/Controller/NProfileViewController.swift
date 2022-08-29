@@ -21,17 +21,7 @@ class NProfileViewController: UIViewController, UITextFieldDelegate, UITextViewD
     let activityIndicator = UIActivityIndicatorView()
     var imagePicker = UIImagePickerController()
     let imageRef = Storage.storage().reference().child(Auth.auth().currentUser!.uid)
-    
-    //MARK: - IBOutlets
-    @IBOutlet weak var ppImageView: UIImageView!
-    @IBOutlet weak var nameLbl: UILabel!
-    @IBOutlet weak var totalStepsLbl: UILabel!
-    @IBOutlet weak var totalPointsLbl: UILabel!
-    @IBOutlet weak var nameSurname: UITextField!
-    @IBOutlet weak var birthDate: UITextField!
-    @IBOutlet weak var phoneNumber: UITextField!
-    @IBOutlet weak var changeImageBtnOutlet: UIButton!
-    
+        
     //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,17 +37,30 @@ class NProfileViewController: UIViewController, UITextFieldDelegate, UITextViewD
         phoneNumber.delegate = self
         imagePicker.delegate = self
         
+        if Auth.auth().currentUser?.displayName != "mtahagenc" {
+            sendBtnOutlet.isHidden = true
+        }
+
+        
         // These methods are added to move the view up to the keyboard size.
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
+    //MARK: - IBOutlets
+    @IBOutlet weak var sendBtnOutlet: UIButton!
+    @IBOutlet weak var ppImageView: UIImageView!
+    @IBOutlet weak var nameLbl: UILabel!
+    @IBOutlet weak var nameSurname: UITextField!
+    @IBOutlet weak var birthDate: UITextField!
+    @IBOutlet weak var phoneNumber: UITextField!
+    @IBOutlet weak var changeImageBtnOutlet: UIButton!
     
     //MARK: - IBAction Functions
     @IBAction func backBtn(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
-    @IBAction func pastCompBtn(_ sender: UIButton) {
-        print("Past Competitions")
+    @IBAction func settingsBtn(_ sender: UIButton) {
+        performSegue(withIdentifier: "goToSettings", sender: self)
     }
     @IBAction func changeImageBtn(_ sender: UIButton) {
         if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){

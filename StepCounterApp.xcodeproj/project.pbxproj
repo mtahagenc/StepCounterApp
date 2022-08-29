@@ -35,6 +35,7 @@
 		8AE1D8A0256FEB5200768EE7 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE1D89F256FEB5200768EE7 /* UserData.swift */; };
 		8AEB379C26EB9C42003A9363 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEB379B26EB9C42003A9363 /* NotificationViewController.swift */; };
 		8AEC579225EE098E00B5F8C4 /* NProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEC579125EE098D00B5F8C4 /* NProfileViewController.swift */; };
+		9051B1BF28BC0ABE00B002C8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9051B1BE28BC0ABE00B002C8 /* SettingsViewController.swift */; };
 		9098563128B620560021FB85 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9098563028B620560021FB85 /* StoreKit.framework */; };
 		F98159C2F298E1CE48F5126E /* Pods_StepCounterApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B153BE529050F653EB93AEFA /* Pods_StepCounterApp.framework */; };
 /* End PBXBuildFile section */
@@ -118,6 +119,7 @@
 		8AE1D89F256FEB5200768EE7 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		8AEB379B26EB9C42003A9363 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		8AEC579125EE098D00B5F8C4 /* NProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NProfileViewController.swift; sourceTree = "<group>"; };
+		9051B1BE28BC0ABE00B002C8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		9098563028B620560021FB85 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		91C2813E231F19139520A47E /* Pods-StepCounterApp-OneSignalNotificationServiceExtension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StepCounterApp-OneSignalNotificationServiceExtension.debug.xcconfig"; path = "Target Support Files/Pods-StepCounterApp-OneSignalNotificationServiceExtension/Pods-StepCounterApp-OneSignalNotificationServiceExtension.debug.xcconfig"; sourceTree = "<group>"; };
 		92DC6E6C78AC86FBE62A665D /* Pods_StepCounterApp_StepCounterAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StepCounterApp_StepCounterAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -242,6 +244,7 @@
 				8A3F779525F56F0700ADD58B /* ProductTableViewCell */,
 				8AB8B50725987425001CDCD6 /* ScoreTableViewCell */,
 				8AB8B5142598797A001CDCD6 /* NScoreBoardTableViewController.swift */,
+				9051B1BE28BC0ABE00B002C8 /* SettingsViewController.swift */,
 				8AEC579125EE098D00B5F8C4 /* NProfileViewController.swift */,
 				8A5DC47B25F1B2580062D945 /* IAPViewController.swift */,
 				8AEB379B26EB9C42003A9363 /* NotificationViewController.swift */,
@@ -658,6 +661,7 @@
 				8AE1D8A0256FEB5200768EE7 /* UserData.swift in Sources */,
 				8A6D5BB9256DAC800022D5FE /* RegisterViewController.swift in Sources */,
 				8A1CEB2226EC9FCC00DB22E3 /* NotificationTableViewCell.swift in Sources */,
+				9051B1BF28BC0ABE00B002C8 /* SettingsViewController.swift in Sources */,
 				8A3F778F25F56F0000ADD58B /* ProductTableViewCell.swift in Sources */,
 				8A6D5BB1256DAC6E0022D5FE /* SignInViewController.swift in Sources */,
 				8AB8B4F12597A189001CDCD6 /* Extensions.swift in Sources */,

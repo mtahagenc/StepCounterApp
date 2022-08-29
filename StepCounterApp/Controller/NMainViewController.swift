@@ -116,7 +116,7 @@ class NMainViewController: UIViewController, MyDataSendingDelegateProtocol {
             
                 //change activeComp with the snapshotValue
                 self.activeComp.gift = snapshotValue["gift"] as! String
-                self.activeComp.id = snapshotValue["id"] as! Int
+                self.activeComp.id = snapshotValue["id"] as! String
                 self.activeComp.name = snapshotValue["name"] as! String
                 self.activeComp.users = snapshotValue["users"] as! [String : Int]
                 

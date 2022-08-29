@@ -40,7 +40,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="UX4-5O-dSk">
                                 <rect key="frame" x="27.5" y="243.5" width="320" height="180"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="taha@g.com" borderStyle="line" placeholder="Email" textAlignment="center" minimumFontSize="17" background="email" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="wTw-Kj-Hys">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Email" textAlignment="center" minimumFontSize="17" background="email" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="wTw-Kj-Hys">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="60.5"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
@@ -654,6 +654,16 @@
                                                     <action selector="exitBtn:" destination="5eI-Jy-zpj" eventType="touchUpInside" id="lS0-Wd-1DN"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jTo-s3-Vdy">
+                                                <rect key="frame" x="113.5" y="842" width="148" height="48"/>
+                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                                <state key="normal" title="Ayarlar" backgroundImage="fill-rect">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="settingsBtn:" destination="5eI-Jy-zpj" eventType="touchUpInside" id="Poq-kx-qo1"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -694,6 +704,8 @@
                                             <constraint firstItem="rcY-e9-HM0" firstAttribute="centerX" secondItem="Gxg-XS-FYc" secondAttribute="centerX" id="q7e-GZ-qJN"/>
                                             <constraint firstItem="Qv4-Ct-iri" firstAttribute="centerY" secondItem="MVo-M5-qQQ" secondAttribute="centerY" id="q9b-rX-lTS"/>
                                             <constraint firstAttribute="trailing" secondItem="hum-dP-3cJ" secondAttribute="trailing" constant="25" id="ra9-b7-0JJ"/>
+                                            <constraint firstAttribute="bottom" secondItem="jTo-s3-Vdy" secondAttribute="bottom" constant="10" id="s41-5c-stJ"/>
+                                            <constraint firstItem="jTo-s3-Vdy" firstAttribute="centerX" secondItem="Gxg-XS-FYc" secondAttribute="centerX" id="sXc-WN-aNt"/>
                                             <constraint firstItem="95k-HB-gYr" firstAttribute="top" secondItem="Q6i-qh-OUn" secondAttribute="bottom" constant="10" id="tHL-Lu-HEA"/>
                                             <constraint firstItem="7pg-yd-3lr" firstAttribute="centerX" secondItem="Gxg-XS-FYc" secondAttribute="centerX" id="ueP-11-VIR"/>
                                             <constraint firstItem="YFl-WD-ajL" firstAttribute="leading" secondItem="95k-HB-gYr" secondAttribute="trailing" constant="-30" id="v3f-nb-y1V"/>
@@ -732,11 +744,116 @@
                         <outlet property="nameSurname" destination="Qv4-Ct-iri" id="0la-S0-i5h"/>
                         <outlet property="phoneNumber" destination="DfL-b2-n9c" id="n8i-4G-yoV"/>
                         <outlet property="ppImageView" destination="95k-HB-gYr" id="8ub-E7-b4p"/>
+                        <outlet property="sendBtnOutlet" destination="jTo-s3-Vdy" id="N60-lH-eIG"/>
+                        <segue destination="Pme-jx-AnY" kind="presentation" identifier="goToSettings" id="NHH-Xl-IWK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ELB-sY-sX9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3644" y="53"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="qOi-aA-yDS">
+            <objects>
+                <viewController id="Pme-jx-AnY" customClass="SettingsViewController" customModule="StepCounterApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Gdh-4p-X3e">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="HBG-gT-J2a">
+                                <rect key="frame" x="20" y="130" width="335" height="287.5"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sfS-dS-2d7">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="41.5"/>
+                                        <color key="textColor" red="0.14509806040000001" green="0.29803922770000002" blue="0.6784313917" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Gift" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J9c-mu-imh">
+                                        <rect key="frame" x="0.0" y="61.5" width="335" height="41.5"/>
+                                        <color key="textColor" red="0.14509806040000001" green="0.29803922770000002" blue="0.6784313917" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Id" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vu9-0m-1Pg">
+                                        <rect key="frame" x="0.0" y="123" width="335" height="41.5"/>
+                                        <color key="textColor" red="0.14509806040000001" green="0.29803922770000002" blue="0.6784313917" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Start Date" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xqY-cr-axE">
+                                        <rect key="frame" x="0.0" y="184.5" width="335" height="41.5"/>
+                                        <color key="textColor" red="0.14509806040000001" green="0.29803922770000002" blue="0.6784313917" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="End Date" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bms-gS-BFm">
+                                        <rect key="frame" x="0.0" y="246" width="335" height="41.5"/>
+                                        <color key="textColor" red="0.14509806040000001" green="0.29803922770000002" blue="0.6784313917" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yarışma Ayarları" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lLt-LQ-khh">
+                                <rect key="frame" x="20" y="20" width="335" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="25"/>
+                                <color key="textColor" systemColor="tintColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="kmQ-UD-t96">
+                                <rect key="frame" x="20" y="437.5" width="335" height="48"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Abd-I7-SvF">
+                                        <rect key="frame" x="0.0" y="0.0" width="157.5" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                        <state key="normal" title="Gönder" backgroundImage="fill-rect">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sendBtn:" destination="Pme-jx-AnY" eventType="touchUpInside" id="y6T-3h-TLm"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0S-fD-mWt">
+                                        <rect key="frame" x="177.5" y="0.0" width="157.5" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                        <state key="normal" title="Geri" backgroundImage="empty-rect">
+                                            <color key="titleColor" red="0.14509806040000001" green="0.29803922770000002" blue="0.6784313917" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="backBtn:" destination="Pme-jx-AnY" eventType="touchUpInside" id="JIR-J7-kE2"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="kQn-po-1ez"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="lLt-LQ-khh" firstAttribute="top" secondItem="kQn-po-1ez" secondAttribute="top" constant="20" id="5U3-DU-Tc5"/>
+                            <constraint firstItem="HBG-gT-J2a" firstAttribute="top" secondItem="lLt-LQ-khh" secondAttribute="bottom" constant="80" id="Gh3-ie-G5i"/>
+                            <constraint firstItem="kQn-po-1ez" firstAttribute="trailing" secondItem="HBG-gT-J2a" secondAttribute="trailing" constant="20" id="KDS-Va-eQK"/>
+                            <constraint firstItem="kQn-po-1ez" firstAttribute="trailing" secondItem="lLt-LQ-khh" secondAttribute="trailing" constant="20" id="OKz-Gw-rgu"/>
+                            <constraint firstItem="HBG-gT-J2a" firstAttribute="leading" secondItem="kQn-po-1ez" secondAttribute="leading" constant="20" id="PTL-Rd-kAK"/>
+                            <constraint firstItem="lLt-LQ-khh" firstAttribute="leading" secondItem="kQn-po-1ez" secondAttribute="leading" constant="20" id="RVD-ra-4UF"/>
+                            <constraint firstItem="kQn-po-1ez" firstAttribute="trailing" secondItem="kmQ-UD-t96" secondAttribute="trailing" constant="20" id="emN-CR-5xk"/>
+                            <constraint firstItem="kmQ-UD-t96" firstAttribute="top" secondItem="HBG-gT-J2a" secondAttribute="bottom" constant="20" id="k9L-h8-5BG"/>
+                            <constraint firstItem="kmQ-UD-t96" firstAttribute="leading" secondItem="kQn-po-1ez" secondAttribute="leading" constant="20" id="tVE-JH-1vm"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="S90-TV-pQO"/>
+                    <connections>
+                        <outlet property="endDateTextField" destination="Bms-gS-BFm" id="TYu-qi-uBB"/>
+                        <outlet property="giftTextField" destination="J9c-mu-imh" id="UrF-ip-82Z"/>
+                        <outlet property="idTextField" destination="Vu9-0m-1Pg" id="USu-hC-mOT"/>
+                        <outlet property="nameTextField" destination="sfS-dS-2d7" id="aip-p1-Rce"/>
+                        <outlet property="startDateTextField" destination="xqY-cr-axE" id="yTg-2h-NjP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="edp-9b-sh7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4577" y="54"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="pvu-ry-k5j">
@@ -779,7 +896,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZqS-F7-IZE">
                                 <rect key="frame" x="27.5" y="243.5" width="320" height="180"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="mtahagenc" borderStyle="line" placeholder="Kullanıcı Adı" textAlignment="center" minimumFontSize="17" background="user-name" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="QNM-5n-WxN">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Kullanıcı Adı" textAlignment="center" minimumFontSize="17" background="user-name" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="QNM-5n-WxN">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="53.5"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
@@ -790,7 +907,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="mtahagenc@gmail.com" borderStyle="line" placeholder="Email" textAlignment="center" minimumFontSize="17" background="email" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="WsX-f2-M95">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Email" textAlignment="center" minimumFontSize="17" background="email" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="WsX-f2-M95">
                                         <rect key="frame" x="0.0" y="63.5" width="320" height="53"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
@@ -801,7 +918,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Tahataha" borderStyle="line" placeholder="Şifre" textAlignment="center" minimumFontSize="17" background="password" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="bPY-lp-7PK">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Şifre" textAlignment="center" minimumFontSize="17" background="password" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="bPY-lp-7PK">
                                         <rect key="frame" x="0.0" y="126.5" width="320" height="53.5"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
@@ -1024,6 +1141,9 @@
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
